@@ -15,7 +15,7 @@ async function main() {
     create: {
       email: process.env.ADMIN_EMAIL || 'admin@healingtouch.com',
       password: hashedPassword,
-      name: 'Dr. Sarah Chen',
+      name: 'Dr. Thameem Ansari',
       role: Role.ADMIN,
     },
   })

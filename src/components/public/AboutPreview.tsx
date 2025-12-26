@@ -35,8 +35,8 @@ export default function AboutPreview() {
           <div className="relative">
             <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/doctor-portrait.jpg"
-                alt="Dr. Sarah Chen - Licensed Acupuncturist"
+                src="/images/doctor.jpg"
+                alt="Dr. Thameem Ansari - Licensed Acupuncturist"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -47,7 +47,7 @@ export default function AboutPreview() {
 
             {/* Experience badge */}
             <div className="absolute -bottom-6 -right-6 lg:right-auto lg:-left-6 bg-primary text-primary-foreground rounded-xl shadow-lg p-6 text-center">
-              <div className="font-serif text-4xl font-bold mb-1">15+</div>
+              <div className="font-serif text-4xl font-bold mb-1">16+</div>
               <div className="text-sm text-primary-foreground/80">
                 Years of
                 <br />
@@ -62,7 +62,7 @@ export default function AboutPreview() {
               Meet Your Practitioner
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-              Dr. Sarah Chen, L.Ac., DAOM
+              Dr. Thameem Ansari, L.Ac., DAOM
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               With over 15 years of experience in traditional Chinese medicine,

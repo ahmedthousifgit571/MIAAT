@@ -14,21 +14,21 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Us | Meet Dr. Sarah Chen',
+  title: 'About Us | Meet Dr. Thameem Ansari',
   description:
-    'Learn about Healing Touch Acupuncture and meet Dr. Sarah Chen, our NCCAOM certified acupuncturist with over 15 years of experience in traditional Chinese medicine.',
+    'Learn about Healing Touch Acupuncture and meet Dr. Thameem Ansari, our NCCAOM certified acupuncturist with over 15 years of experience in traditional Chinese medicine.',
   keywords: [
     'about acupuncture clinic',
     'licensed acupuncturist',
     'NCCAOM certified',
     'traditional chinese medicine practitioner',
-    'Dr Sarah Chen',
+    'Dr Thameem Ansari',
     'acupuncture experience',
   ],
   openGraph: {
     title: 'About Healing Touch Acupuncture',
     description:
-      'Meet Dr. Sarah Chen and learn about our mission to provide exceptional acupuncture care.',
+      'Meet Dr. Thameem Ansari and learn about our mission to provide exceptional acupuncture care.',
   },
 }
 
@@ -50,7 +50,7 @@ const credentials = [
   },
   {
     icon: Calendar,
-    title: '15+ Years Experience',
+    title: '17 Years Experience',
     description: 'Dedicated practice and continuous learning',
   },
 ]
@@ -119,8 +119,8 @@ export default function AboutPage() {
           <div className="relative">
             <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/doctor-portrait.jpg"
-                alt="Dr. Sarah Chen - Licensed Acupuncturist"
+                src="/images/doctor.jpg"
+                alt="Dr. Thameem Ansari - Licensed Acupuncturist"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -132,7 +132,7 @@ export default function AboutPage() {
 
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 lg:right-auto lg:-left-6 bg-primary text-primary-foreground rounded-xl shadow-lg p-6 text-center">
-              <div className="font-serif text-4xl font-bold mb-1">15+</div>
+              <div className="font-serif text-4xl font-bold mb-1">16+</div>
               <div className="text-sm text-primary-foreground/80">
                 Years of
                 <br />
@@ -147,23 +147,22 @@ export default function AboutPage() {
               About Your Practitioner
             </span>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold text-foreground mb-6">
-              Dr. Sarah Chen, L.Ac., DAOM
+              Dr. Thameem Ansari, MD (Acupuncture)
             </h1>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              With over 15 years of dedicated practice in Traditional Chinese
-              Medicine, Dr. Chen brings a unique blend of ancient wisdom and
-              modern understanding to every patient encounter.
+              With over 17 years of hands-on experience in acupuncture, Dr. Thameem Ansari 
+              brings a deep understanding of therapeutic techniques and patient care, 
+              delivering personalized, effective treatments tailored to individual health needs.
             </p>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Her journey into acupuncture began after witnessing the profound
-              healing effects it had on her grandmother&apos;s chronic pain. This
-              personal experience ignited a passion that has driven her to help
-              thousands of patients find relief and restore balance in their
-              lives.
+            His journey into acupuncture began after witnessing the profound healing effects
+            it had on his grandmother’s chronic pain.
+            This personal experience ignited a lifelong passion to help others find relief, 
+            restore balance, and improve their overall well-being.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Dr. Chen specializes in pain management, stress and anxiety
-              disorders, women&apos;s health, and fertility support. She believes in
+              Dr. Thameem Ansari specializes in pain management, stress and anxiety
+              disorders, men&apos;s health, and fertility support. He believes in
               treating the whole person, not just symptoms, and takes time to
               understand each patient&apos;s unique health journey.
             </p>

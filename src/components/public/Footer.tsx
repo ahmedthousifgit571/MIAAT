@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react'
 
 const services = [
-  { label: 'Traditional Acupuncture', href: '/services/traditional-acupuncture' },
-  { label: 'Pain Management', href: '/services/pain-management' },
-  { label: 'Stress & Anxiety Relief', href: '/services/stress-anxiety-relief' },
-  { label: 'Fertility Support', href: '/services/fertility-support' },
-  { label: 'Cupping Therapy', href: '/services/cupping-therapy' },
-  { label: 'Cosmetic Acupuncture', href: '/services/cosmetic-acupuncture' },
+  { label: 'Acupuncture', href: '/services/acupuncture' },
+  { label: 'Facial/Cosmetic Acupuncture and Cupping', href: '/services/facial-cosmetic-acupuncture-cupping' },
+  { label: 'Dry Cupping', href: '/services/dry-cupping' },
+  { label: 'Fire Cupping', href: '/services/fire-cupping' },
+  { label: 'Herbal Cupping', href: '/services/herbal-cupping' },
+  { label: 'Wet Cupping (Hijama)', href: '/services/wet-cupping-hijama' },
+  { label: 'Reflexology', href: '/services/reflexology' },
 ]
 
 const quickLinks = [
@@ -53,25 +54,22 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/people/Mega-Institute-of-Acupuncture-and-Acupressure-Therapy/100046135585702/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/mega_institute_of_acupuncture/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -120,7 +118,7 @@ export default function Footer() {
                   className="flex items-start gap-3 text-sm text-background/70 hover:text-primary transition-colors"
                 >
                   <Phone className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                  <span>(123) 456-7890</span>
+                  <span>(+91) 9841756639</span>
                 </a>
               </li>
               <li>
@@ -135,17 +133,17 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-sm text-background/70">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <span>
-                  123 Wellness Street, Suite 100
+                  Mega Acu Clinic, - Near Maadi Poonga or Thambu Chetty Bus Stop, 15/1, Venkata Iyer Street, Mannady., 
                   <br />
-                  Healing City, HC 12345
+                   Chennai-600001, Tamil Nadu
                 </span>
               </li>
               <li className="flex items-start gap-3 text-sm text-background/70">
                 <Clock className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p>Mon - Fri: 9:00 AM - 5:00 PM</p>
-                  <p>Saturday: 10:00 AM - 2:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>Mon - thur: 10:30 AM - 12:30 PM</p>
+                  <p>Saturday: 10:30 AM - 12:030 PM</p>
+                  <p>Fri,Sun: Closed</p>
                 </div>
               </li>
             </ul>

@@ -1,25 +1,29 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Clock, DollarSign } from 'lucide-react'
 import { services } from '@/data/services'
 
 export const metadata: Metadata = {
   title: 'Acupuncture Services & Treatments',
   description:
-    'Explore our comprehensive range of acupuncture services including traditional acupuncture, pain management, stress relief, fertility support, cupping therapy, and cosmetic acupuncture.',
+    'Explore our comprehensive range of acupuncture services including Acupuncture, Facial/Cosmetic Acupuncture and Cupping, Dry Cupping, Fire Cupping, Herbal Cupping, Wet Cupping (Hijama), and Reflexology.',
   keywords: [
     'acupuncture services',
-    'traditional acupuncture',
-    'pain management acupuncture',
-    'cupping therapy',
-    'fertility acupuncture',
+    'acupuncture',
+    'facial acupuncture',
     'cosmetic acupuncture',
-    'stress relief treatment',
+    'dry cupping therapy',
+    'fire cupping',
+    'herbal cupping',
+    'wet cupping',
+    'hijama',
+    'reflexology',
   ],
   openGraph: {
-    title: 'Acupuncture Services & Treatments | Healing Touch',
+    title: 'Acupuncture Services & Treatments | MIAT',
     description:
-      'Explore our comprehensive range of acupuncture services tailored to your unique health needs.',
+      'Explore our comprehensive range of acupuncture and cupping services tailored to your unique health needs.',
   },
 }
 
@@ -56,9 +60,14 @@ export default function ServicesPage() {
                   className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full flex flex-col animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Icon header */}
-                  <div className="relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                    <Icon className="h-20 w-20 text-primary/40 group-hover:scale-110 group-hover:text-primary/60 transition-all duration-300" />
+                  {/* Service image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
 
                   {/* Content */}

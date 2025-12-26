@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowRight, ArrowLeft, Clock, DollarSign, Check, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -102,10 +103,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
           {/* Hero section */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-16">
-            {/* Image/Icon area */}
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-              <Icon className="h-32 w-32 text-primary/40" />
-              <div className="absolute inset-0 bg-gradient-to-t from-card/50 to-transparent" />
+            {/* Service image */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src={service.image}
+                alt={service.name}
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
 
             {/* Content */}
@@ -208,8 +214,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     href={`/services/${related.slug}`}
                     className="group flex gap-6 p-6 bg-card rounded-xl border border-border hover:shadow-lg hover:border-primary/30 transition-all"
                   >
-                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <RelatedIcon className="h-8 w-8 text-primary" />
+                    <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+                      <Image
+                        src={related.image}
+                        alt={related.name}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-serif text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">

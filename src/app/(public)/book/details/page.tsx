@@ -245,7 +245,7 @@ function DetailsContent() {
                 type="tel"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="(123) 456-7890"
+                placeholder="(+91) 9841756639"
                 className={cn(
                   'rounded-lg',
                   errors.phone && 'border-destructive'
