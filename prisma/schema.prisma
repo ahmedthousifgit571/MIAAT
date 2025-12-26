@@ -1,0 +1,120 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin/Doctor user model
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // hashed with bcrypt
+  name      String
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+// Patient who books appointments
+model Patient {
+  id           String        @id @default(cuid())
+  name         String
+  email        String
+  phone        String
+  notes        String?
+  appointments Appointment[]
+  createdAt    DateTime      @default(now())
+
+  @@index([email])
+  @@map("patients")
+}
+
+// Acupuncture services offered
+model Service {
+  id           String        @id @default(cuid())
+  name         String
+  slug         String        @unique
+  description  String        @db.Text
+  shortDesc    String        @db.VarChar(200)
+  duration     Int           // in minutes
+  price        Decimal       @db.Decimal(10, 2)
+  image        String?
+  icon         String?       // Lucide icon name
+  isActive     Boolean       @default(true)
+  sortOrder    Int           @default(0)
+  appointments Appointment[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([slug])
+  @@index([isActive])
+  @@map("services")
+}
+
+// Patient appointment booking
+model Appointment {
+  id        String            @id @default(cuid())
+  patient   Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  patientId String
+  service   Service           @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  serviceId String
+  date      DateTime          @db.Date
+  startTime DateTime          @db.Time
+  endTime   DateTime          @db.Time
+  status    AppointmentStatus @default(PENDING)
+  notes     String?           @db.Text
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  @@index([date])
+  @@index([status])
+  @@index([patientId])
+  @@index([serviceId])
+  @@map("appointments")
+}
+
+// Doctor's weekly availability schedule
+model Availability {
+  id        String  @id @default(cuid())
+  dayOfWeek Int     // 0 = Sunday, 1 = Monday, etc.
+  startTime String  // "09:00" format
+  endTime   String  // "17:00" format
+  isActive  Boolean @default(true)
+
+  @@unique([dayOfWeek])
+  @@map("availability")
+}
+
+// Specific dates when clinic is closed
+model BlockedDate {
+  id     String   @id @default(cuid())
+  date   DateTime @db.Date
+  reason String?
+
+  @@unique([date])
+  @@map("blocked_dates")
+}
+
+// Enum for user roles
+enum Role {
+  ADMIN
+  SUPERADMIN
+}
+
+// Enum for appointment status
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+  RESCHEDULED
+  NO_SHOW
+}
