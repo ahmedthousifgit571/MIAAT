@@ -44,7 +44,7 @@ export default function CTASection() {
                   >
                     <a href="tel:+1234567890">
                       <Phone className="mr-2 h-5 w-5" />
-                      (123) 456-7890
+                     (+91) 9841756639
                     </a>
                   </Button>
                 </div>
@@ -62,9 +62,9 @@ export default function CTASection() {
                         Visit Our Clinic
                       </h3>
                       <p className="text-primary-foreground/70 text-sm">
-                        123 Wellness Street, Suite 100
+                        Mega Acu Clinic, - Near Maadi Poonga or Thambu Chetty Bus Stop, 15/1, Venkata Iyer Street, Mannady., 
                         <br />
-                        Healing City, HC 12345
+                        Chennai-600001, Tamil Nadu
                       </p>
                     </div>
                   </div>
@@ -80,9 +80,9 @@ export default function CTASection() {
                         Clinic Hours
                       </h3>
                       <p className="text-primary-foreground/70 text-sm">
-                        Mon - Fri: 9:00 AM - 5:00 PM
+                        Mon - Thur: 10:30 AM - 12:30 PM
                         <br />
-                        Saturday: 10:00 AM - 2:00 PM
+                        Saturday: 10:30 AM - 12:30 PM
                       </p>
                     </div>
                   </div>

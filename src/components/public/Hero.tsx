@@ -78,7 +78,7 @@ export default function Hero() {
             <div className="mt-10 pt-8 border-t border-border animate-fade-in-up delay-400">
               <div className="flex flex-wrap justify-center lg:justify-start gap-8">
                 <div className="text-center">
-                  <div className="font-serif text-3xl font-bold text-primary">15+</div>
+                  <div className="font-serif text-3xl font-bold text-primary">16+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
                 <div className="text-center">
@@ -99,7 +99,7 @@ export default function Hero() {
               {/* Main image placeholder */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 to-accent/20">
                 <Image
-                  src="/images/hero-acupuncture.jpg"
+                  src="/images/religiousCupping.jpg"
                   alt="Professional acupuncture treatment session"
                   fill
                   className="object-cover"

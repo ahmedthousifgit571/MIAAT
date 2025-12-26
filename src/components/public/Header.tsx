@@ -157,7 +157,7 @@ export default function Header() {
                       className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Phone className="h-4 w-4" />
-                      <span>(123) 456-7890</span>
+                      <span>(+91) 9841756639</span>
                     </a>
                   </div>
                 </div>

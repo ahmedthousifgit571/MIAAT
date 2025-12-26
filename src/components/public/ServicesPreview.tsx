@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Clock, DollarSign } from 'lucide-react'
 import { services } from '@/data/services'
@@ -35,9 +36,14 @@ export default function ServicesPreview() {
                 className="group block"
               >
                 <article className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 h-full">
-                  {/* Image placeholder */}
-                  <div className="relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                    <Icon className="h-16 w-16 text-primary/50 group-hover:scale-110 transition-transform duration-300" />
+                  {/* Service image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                   </div>
 

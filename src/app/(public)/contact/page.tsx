@@ -129,7 +129,7 @@ export default function ContactPage() {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(123) 456-7890"
+                      placeholder="(+91) 9841756639"
                       className="rounded-lg"
                     />
                   </div>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                   <div>
                     <div className="font-medium text-foreground mb-1">Phone</div>
                     <div className="text-muted-foreground group-hover:text-primary transition-colors">
-                      (123) 456-7890
+                      (+91) 9841756639
                     </div>
                   </div>
                 </a>
@@ -218,9 +218,9 @@ export default function ContactPage() {
                       Address
                     </div>
                     <div className="text-muted-foreground">
-                      123 Wellness Street, Suite 100
+                      Mega Acu Clinic, - Near Maadi Poonga or Thambu Chetty Bus Stop, 15/1, Venkata Iyer Street, Mannady., 
                       <br />
-                      Healing City, HC 12345
+                       Chennai-600001, Tamil Nadu
                     </div>
                   </div>
                 </div>
@@ -239,13 +239,13 @@ export default function ContactPage() {
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between py-2 border-b border-border">
-                  <span className="text-foreground">Monday - Friday</span>
-                  <span className="text-muted-foreground">9:00 AM - 5:00 PM</span>
+                  <span className="text-foreground">Monday - Thursday</span>
+                  <span className="text-muted-foreground">10:30 AM - 12:30 PM</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-border">
                   <span className="text-foreground">Saturday</span>
                   <span className="text-muted-foreground">
-                    10:00 AM - 2:00 PM
+                    10:30 AM - 12:30 PM
                   </span>
                 </div>
                 <div className="flex justify-between py-2">
