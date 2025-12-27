@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -8,7 +8,7 @@ import { ArrowRight, ArrowLeft, Check, Clock, DollarSign } from 'lucide-react'
 import { services } from '@/data/services'
 import { cn } from '@/lib/utils'
 
-export default function BookingPage() {
+function BookingContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const preSelectedService = searchParams.get('service')
@@ -161,3 +161,22 @@ export default function BookingPage() {
   )
 }
 
+function BookingLoading() {
+  return (
+    <div className="pt-32 pb-20">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function BookingPage() {
+  return (
+    <Suspense fallback={<BookingLoading />}>
+      <BookingContent />
+    </Suspense>
+  )
+}

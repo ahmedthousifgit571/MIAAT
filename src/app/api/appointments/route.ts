@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
+import { Prisma, AppointmentStatus } from '@prisma/client'
 import prisma from '@/lib/prisma'
 import { authOptions } from '@/lib/auth'
 import { bookingSchema } from '@/lib/validators'
@@ -22,24 +23,21 @@ export async function GET(request: NextRequest) {
     const dateTo = searchParams.get('dateTo')
     const serviceId = searchParams.get('serviceId')
 
-    const where: {
-      status?: string
-      date?: { gte?: Date; lte?: Date }
-      serviceId?: string
-    } = {}
+    const where: Prisma.AppointmentWhereInput = {}
 
     if (status && status !== 'all') {
-      where.status = status
+      where.status = status as AppointmentStatus
     }
 
     if (dateFrom || dateTo) {
-      where.date = {}
+      const dateFilter: { gte?: Date; lte?: Date } = {}
       if (dateFrom) {
-        where.date.gte = new Date(dateFrom)
+        dateFilter.gte = new Date(dateFrom)
       }
       if (dateTo) {
-        where.date.lte = new Date(dateTo)
+        dateFilter.lte = new Date(dateTo)
       }
+      where.date = dateFilter
     }
 
     if (serviceId) {
