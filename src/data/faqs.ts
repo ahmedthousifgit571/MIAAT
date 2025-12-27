@@ -67,3 +67,6 @@ export function getFAQs(): FAQItem[] {
   return faqs
 }
 
+
+
+

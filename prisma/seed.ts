@@ -1,7 +1,29 @@
 import { PrismaClient, Role } from '@prisma/client'
+import { Pool, neonConfig } from '@neondatabase/serverless'
+import { PrismaNeon } from '@prisma/adapter-neon'
 import bcrypt from 'bcryptjs'
+import * as dotenv from 'dotenv'
+import ws from 'ws'
 
-const prisma = new PrismaClient()
+// Load environment variables
+dotenv.config()
+
+// Configure Neon for WebSocket in Node.js environment
+neonConfig.webSocketConstructor = ws
+
+// Create Neon connection pool
+const connectionString = process.env.DATABASE_URL
+if (!connectionString) {
+  throw new Error('DATABASE_URL environment variable is not set')
+}
+
+const pool = new Pool({ connectionString })
+const adapter = new PrismaNeon(pool)
+
+const prisma = new PrismaClient({
+  adapter,
+  log: ['error'],
+})
 
 async function main() {
   console.log('🌱 Starting database seed...')
