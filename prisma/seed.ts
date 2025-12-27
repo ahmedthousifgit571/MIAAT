@@ -1,5 +1,5 @@
 import { PrismaClient, Role } from '@prisma/client'
-import { Pool, neonConfig } from '@neondatabase/serverless'
+import { neonConfig } from '@neondatabase/serverless'
 import { PrismaNeon } from '@prisma/adapter-neon'
 import bcrypt from 'bcryptjs'
 import * as dotenv from 'dotenv'
@@ -11,14 +11,14 @@ dotenv.config()
 // Configure Neon for WebSocket in Node.js environment
 neonConfig.webSocketConstructor = ws
 
-// Create Neon connection pool
+// Get connection string
 const connectionString = process.env.DATABASE_URL
 if (!connectionString) {
   throw new Error('DATABASE_URL environment variable is not set')
 }
 
-const pool = new Pool({ connectionString })
-const adapter = new PrismaNeon(pool)
+// Create PrismaNeon adapter with connection config
+const adapter = new PrismaNeon({ connectionString })
 
 const prisma = new PrismaClient({
   adapter,
