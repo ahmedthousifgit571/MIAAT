@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet'
+import { VisuallyHidden } from '@/components/ui/visually-hidden'
 import { Menu, Phone } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
@@ -102,64 +103,80 @@ export default function Header() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
+              {/* Accessibility: Hidden title for screen readers */}
+              <VisuallyHidden>
+                <SheetTitle>Navigation Menu</SheetTitle>
+                <SheetDescription>Main navigation menu for mobile devices</SheetDescription>
+              </VisuallyHidden>
+              
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between mb-8">
+                {/* Header with Logo */}
+                <div className="flex items-center gap-3 p-6 border-b border-border bg-muted/30">
                   <Link
                     href="/"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-3"
                     onClick={() => setIsOpen(false)}
                   >
-                    <Image 
-                      src="/images/miatLogo.jpeg" 
-                      alt="MIAT Logo" 
-                      width={24} 
-                      height={24} 
-                      className="h-6 w-6 object-contain rounded"
-                    />
-                    <span className="font-serif text-lg font-semibold">
-                      Mega Institute of Acupuncture Acupressure Therapy
-                    </span>
+                    <div className="w-12 h-12 rounded-full overflow-hidden bg-white shadow-sm">
+                      <Image 
+                        src="/images/miatLogo.jpeg" 
+                        alt="MIAT Logo" 
+                        width={48} 
+                        height={48} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-serif text-base font-semibold leading-tight">
+                        Mega Institute of Acupuncture
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        Acupressure Therapy
+                      </span>
+                    </div>
                   </Link>
                 </div>
 
-                <nav className="flex flex-col gap-4">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        'text-lg font-medium py-2 border-b border-border transition-colors',
-                        pathname === item.href
-                          ? 'text-primary'
-                          : 'text-foreground/70 hover:text-foreground'
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                {/* Navigation Links */}
+                <nav className="flex flex-col flex-1 p-6 overflow-y-auto">
+                  <div className="space-y-1">
+                    {navigation.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          'flex items-center px-4 py-3 rounded-lg text-base font-medium transition-all',
+                          pathname === item.href
+                            ? 'bg-primary/10 text-primary'
+                            : 'text-foreground/70 hover:bg-muted hover:text-foreground'
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </nav>
 
-                <div className="mt-auto pt-8">
+                {/* Footer with CTA */}
+                <div className="p-6 border-t border-border bg-muted/30">
                   <Button
                     asChild
                     size="lg"
-                    className="w-full rounded-full"
+                    className="w-full rounded-full mb-4"
                     onClick={() => setIsOpen(false)}
                   >
                     <Link href="/book">Book Appointment</Link>
                   </Button>
 
-                  <div className="mt-6 text-center">
-                    <a
-                      href="tel:+1234567890"
-                      className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <Phone className="h-4 w-4" />
-                      <span>(+91) 9841756639</span>
-                    </a>
-                  </div>
+                  <a
+                    href="tel:+919841756639"
+                    className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span>(+91) 9841756639</span>
+                  </a>
                 </div>
               </div>
             </SheetContent>
