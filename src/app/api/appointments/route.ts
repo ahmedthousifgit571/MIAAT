@@ -22,7 +22,11 @@ export async function GET(request: NextRequest) {
     const dateTo = searchParams.get('dateTo')
     const serviceId = searchParams.get('serviceId')
 
-    const where: Record<string, unknown> = {}
+    const where: {
+      status?: string
+      date?: { gte?: Date; lte?: Date }
+      serviceId?: string
+    } = {}
 
     if (status && status !== 'all') {
       where.status = status
@@ -70,7 +74,7 @@ export async function POST(request: NextRequest) {
     const validationResult = bookingSchema.safeParse(body)
     if (!validationResult.success) {
       return NextResponse.json(
-        { error: 'Invalid input', details: validationResult.error.errors },
+        { error: 'Invalid input', details: validationResult.error.issues },
         { status: 400 }
       )
     }
