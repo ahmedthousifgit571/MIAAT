@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     }
 
     const {
-      serviceId,
+      serviceSlug,
       date,
       time,
       patientName,
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
 
     // Verify service exists
     const service = await prisma.service.findUnique({
-      where: { id: serviceId },
+      where: { slug: serviceSlug },
     })
 
     if (!service) {
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
     const appointment = await prisma.appointment.create({
       data: {
         patientId: patient.id,
-        serviceId,
+        serviceId: service.id,
         date: appointmentDate,
         startTime,
         endTime,

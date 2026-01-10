@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 // Booking form validation
 export const bookingSchema = z.object({
-  serviceId: z.string().min(1, 'Please select a service'),
+  serviceSlug: z.string().min(1, 'Please select a service'),
   date: z.string().min(1, 'Please select a date'),
   time: z.string().min(1, 'Please select a time'),
   patientName: z

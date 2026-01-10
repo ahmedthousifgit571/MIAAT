@@ -85,7 +85,7 @@ function DetailsContent() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          serviceId: service.id,
+          serviceSlug: service.slug,
           date: dateStr,
           time,
           patientName: formData.name,
